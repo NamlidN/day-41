@@ -1,0 +1,27 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.back{
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 80vh;
+}
+
+#txt{
+  background-color: black;
+  color: aliceblue;
+  border-radius:  1rem;
+  border: solid 1rem white;
+  height: 10vh;
+  width: 50vh;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
