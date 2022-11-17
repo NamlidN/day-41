@@ -1,54 +1,87 @@
 
 
-let C
-let count
-function startMinCountdown(){
-    count = Number(document.getElementById('minutes').value)
-    console.log(count);
- C =  setInterval(ValueCount, 1000);
-;
-if(count >= 0){
-    clearInterval(C)
+let C;
+let count;
+let sec;
+function startMinCountdown() {
+    count = Number(document.getElementById('minutes').value);
+    sec = 0;
+    C = setInterval(ValueCount, 1000);
+    document.getElementById('sec').innerHTML = sec;
+    document.getElementById('time').innerHTML = count;
+   
+ 
+    if (count == 0 && sec === 0) {
+        clearInterval(C);
+    }
+
 }
-return count
-}
+// function startMinCountdown(duration, display) {
+
+//     var timer = duration, minutes, seconds;
+//     setInterval(function () {
+//         minutes = parseInt(timer / 60, 10);
+//         seconds = parseInt(timer % 60, 10);
+
+//         minutes = minutes < 10 ? "0" + minutes : minutes;
+//         seconds = seconds < 10 ? "0" + seconds : seconds;
+
+//         display.textContent = minutes + ":" + seconds;
+
+//         if (--timer < 0) {
+//             timer = duration;
+//         }
+//     }, 1000);
+// }
+
+
+
+
+
+
+
+
+
 
 function ValueCount() {
-   
-    count = count -1
-    console.log(count);
-    document.getElementById('time').innerHTML = count
-if(count >= 0){
-    clearInterval(C)
-}
+
+     
+
+
+    document.getElementById('time').innerHTML = count;
+    sec = sec - 1;
+
+    document.getElementById('sec').innerHTML = sec;
+    if (sec === 0) {
+        count = count - 1;
+        sec = 60
+    }
+
+    if (count == 0 && sec === 0) {
+        clearInterval(C);
+    }
 
 }
 
 
 
 
- function restartMinCountdown(){
+function restartMinCountdown() {
 
     clearInterval(C);
     startMinCountdown();
-    document.getElementById('time').innerHTML = count
-    if(count >= 0){
-        clearInterval(C)
+    document.getElementById('time').innerHTML = count;
+    if (count === 0) {
+        clearInterval(C);
     }
- }
-function pauseMinCountdown(){
-  
-  
-    C = setInterval(ValueCount, 100000000000000);
-    document.getElementById('time').innerHTML = count
-    if(count >= 0){
-        clearInterval(C)
+}
+function pauseMinCountdown() {
+
+
+    C = setInterval(ValueCount, 9999999999);
+    document.getElementById('time').innerHTML = count;
+    if (count === 0) {
+        clearInterval(C);
     }
 }
 
-// function time_convert(count)
-//  { 
-
-//   var minutes = count % 60;
-//   return minutes;         
-// }
