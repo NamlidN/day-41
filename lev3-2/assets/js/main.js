@@ -49,14 +49,14 @@ function ValueCount() {
 
 
     document.getElementById('time').innerHTML = count;
-    sec = sec - 1;
+   
 
     document.getElementById('sec').innerHTML = sec;
-    if (sec === 0) {
+    if (sec <= 0) {
         count = count - 1;
         sec = 60
     }
-
+ sec = sec - 1;
     if (count == 0 && sec === 0) {
         clearInterval(C);
     }
@@ -71,17 +71,10 @@ function restartMinCountdown() {
     clearInterval(C);
     startMinCountdown();
     document.getElementById('time').innerHTML = count;
-    if (count === 0) {
-        clearInterval(C);
-    }
+  
 }
 function pauseMinCountdown() {
-
-
-    C = setInterval(ValueCount, 9999999999);
-    document.getElementById('time').innerHTML = count;
-    if (count === 0) {
+  
         clearInterval(C);
-    }
 }
 
